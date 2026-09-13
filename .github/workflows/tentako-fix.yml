@@ -1,0 +1,42 @@
+name: Fix Tentako assets
+
+on:
+  push:
+    paths:
+      - 'tentako/index.html'
+      - '.github/workflows/tentako-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch Tentako
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tentako/index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("https://raw.githubusercontent.com/Mikhd5/botforge-site/main/tentako/assets/site-background.webp", "assets/site-background.webp?v=3")
+          s=s.replace("https://raw.githubusercontent.com/Mikhd5/botforge-site/main/tentako/assets/hero.webp", "assets/hero.webp?v=3")
+          old_roll="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=84"
+          old_sushi="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=84"
+          old_set="https://images.unsplash.com/photo-1563612116625-3012372fccce?auto=format&fit=crop&w=900&q=84"
+          s=s.replace(old_roll, "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=900&q=84")
+          s=s.replace(old_sushi, "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=84")
+          s=s.replace(old_set, "https://images.unsplash.com/photo-1563612116625-3012372fccce?auto=format&fit=crop&w=900&q=84")
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tentako/index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Fix Tentako hero background and product photos'
+          git push
