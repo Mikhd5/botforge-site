@@ -1,0 +1,37 @@
+name: Restore Tentako hero
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tentako-restore.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore previous hero asset without touching menu
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tentako/index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<img src="assets/hero.webp?v=final" alt="Tentako Sushi - роли та японська подача">'
+          new = '<img id="tentakoPreviousHero" src="assets/hero.webp?v=final" alt="Tentako Sushi - роли та японська подача">'
+          if old in s and 'id="tentakoPreviousHero"' not in s:
+              s = s.replace(old, new, 1)
+          script = '''<script>(async()=>{try{const r=await fetch('assets/hero-previous.webp?v=previous');const b=(await r.text()).trim();if(/^[A-Za-z0-9+/=]+$/.test(b)){const el=document.getElementById('tentakoPreviousHero');if(el)el.src='data:image/webp;base64,'+b;}}catch(e){}})();</script>'''
+          if 'hero-previous.webp?v=previous' not in s:
+              s = s.replace('</body>', script + '</body>')
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tentako/index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Restore previous Tentako hero photo'
+          git push
