@@ -1,0 +1,1 @@
+These assets are used by the Tentako demo.
