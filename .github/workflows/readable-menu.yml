@@ -1,0 +1,46 @@
+name: Make Tentako menu heading readable
+
+on:
+  push:
+    paths:
+      - '.github/workflows/readable-menu.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add readable menu heading treatment only
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tentako/index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '/* TENTAKO - readable menu heading over Sakura artwork */'
+          if marker in s:
+              print('Style already present')
+              raise SystemExit(0)
+          css = r'''<style>
+/* TENTAKO - readable menu heading over Sakura artwork */
+#menu .section-head{position:relative;z-index:5;isolation:isolate;background:rgba(250,247,241,.93);border:1px solid rgba(17,17,17,.08);border-radius:22px;padding:22px 26px;box-shadow:0 14px 36px rgba(17,17,17,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#menu .section-head::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:linear-gradient(90deg,rgba(255,255,255,.34),rgba(255,255,255,.12));pointer-events:none}
+#menu .section-head .eyebrow{color:#d51f2b!important;text-shadow:none!important;font-weight:800;letter-spacing:.16em}
+#menu .section-head .section-title{color:#111!important;text-shadow:none!important;-webkit-text-fill-color:#111!important}
+#menu .section-head .under{color:#111!important;text-shadow:none!important;font-weight:800;background:rgba(255,255,255,.48);border-radius:999px;padding:9px 13px}
+@media (max-width:700px){#menu .section-head{margin-inline:0;padding:18px;border-radius:18px;gap:14px;box-shadow:0 10px 28px rgba(17,17,17,.07)}#menu .section-head .eyebrow{font-size:11px!important;letter-spacing:.13em;line-height:1.2}#menu .section-head .section-title{font-size:clamp(30px,8vw,42px)!important;line-height:.98!important;max-width:100%}#menu .section-head .under{font-size:12px!important;padding:8px 11px;white-space:nowrap}}
+</style>'''
+          if '</head>' not in s:
+              raise SystemExit('No head closing tag')
+          s = s.replace('</head>', css + '</head>', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tentako/index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Improve Tentako menu heading readability'
+          git push
