@@ -3,9 +3,583 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SHYNA SHOP</title>
-<meta name="description" content="SHYNA SHOP - шини, підбір та консультація.">
-<style>body{margin:0;background:#030506;color:#fff;font-family:Arial,sans-serif}main{min-height:100vh;display:grid;place-items:center;text-align:center;padding:30px;box-sizing:border-box}a{color:#fff} </style>
+<title>SHYNA SHOP — Шини Львів</title>
+<meta name="description" content="SHYNA SHOP — літні та зимові шини у Львові. Реальні фото, точний підбір, доставка по Україні.">
+<meta name="theme-color" content="#030506">
+<meta property="og:title" content="SHYNA SHOP — Шини Львів">
+<meta property="og:description" content="Premium tire shop. Літо ↔ Зима.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--bg:#030506;--surface:#080d10;--surface2:#0c1317;--line:rgba(255,255,255,.12);--line2:rgba(255,255,255,.22);--white:#f5f5f1;--muted:#a2a9ad;--dim:#697177;--warm:#ffad58;--cold:#8bd7ff;--ease:cubic-bezier(.2,.75,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}body.lock{overflow:hidden}a{text-decoration:none;color:inherit}button,input,select{font:inherit}button{color:inherit;cursor:pointer}.page{min-height:100vh;background:#030506}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;height:76px;z-index:100;display:grid;grid-template-columns:240px 1fr 390px;align-items:center;padding:0 3.9vw;background:linear-gradient(180deg,rgba(0,0,0,.64),rgba(0,0,0,0));transition:.45s var(--ease)}.nav.scrolled{background:rgba(3,5,6,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.logo{line-height:.88;letter-spacing:-1.4px;white-space:nowrap}.logo b{font-size:24px;font-weight:900}.logo span{font-size:24px;font-weight:300}.logo small{display:block;font-size:7px;letter-spacing:2.8px;color:#737b80;margin-top:7px}.navlinks{display:flex;justify-content:center;gap:28px}.navlinks a{position:relative;font-size:10px;color:#d3d7d9;padding:10px 0}.navlinks a:after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:#fff;transition:.3s}.navlinks a:hover:after{right:0}.navright{display:flex;align-items:center;justify-content:flex-end;gap:17px}.phone{display:flex;align-items:center;gap:7px;font-size:9px;color:#e5e7e7;white-space:nowrap}.write,.outline{height:40px;padding:0 17px;border:1px solid rgba(255,255,255,.58);border-radius:22px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:9px;background:rgba(0,0,0,.08);transition:.3s}.write:hover,.outline:hover{background:#fff;color:#050607;transform:translateY(-1px)}.nav-search{width:34px;height:34px;border:0;background:transparent;display:grid;place-items:center}.menu{display:none;width:34px;height:34px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(0,0,0,.15)}
+/* HERO */
+.hero{height:760px;min-height:690px;position:relative;overflow:hidden;isolation:isolate;touch-action:none;user-select:none;cursor:ew-resize}.scene{position:absolute;inset:-2%;background-size:cover;background-position:center;will-change:clip-path,transform,filter}.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.36),transparent 34%,rgba(0,0,0,.7)),linear-gradient(90deg,rgba(0,0,0,.16),transparent 42%,rgba(0,0,0,.22))}.scene.summer{background-image:url('https://assets.lummi.ai/assets/QmRjcZjCVU3Xuft9x1cdwVFC8hcA5VNGDcHn8cw73WSTvs');filter:saturate(1.08) contrast(1.1)}.scene.winter{background-image:url('https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/seo-landing-pages/Driving-in-snow.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg');filter:saturate(.8) contrast(1.13) brightness(.8)}.hero:before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(circle at 50% 53%,transparent 21%,rgba(0,0,0,.2) 63%,rgba(0,0,0,.56) 100%)}.noise{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.particles{position:absolute;inset:0;width:100%;height:100%;z-index:7;pointer-events:none}
+.copy{position:absolute;z-index:12;top:156px;width:34%;transition:opacity .08s,filter .08s,transform .08s}.copy.left{left:4.3%}.copy.right{right:4.3%}.meta{font-size:9px;letter-spacing:.7px;display:flex;gap:28px;align-items:center;margin-bottom:26px}.meta span{font-size:10px}.meta .sun{color:#ffd18d}.meta .snow{color:#cfefff}.copy h1,.copy h2{font-family:'Barlow Condensed',Impact,sans-serif;font-size:62px;line-height:.79;letter-spacing:-1.5px;text-transform:uppercase;margin:0 0 20px;font-weight:800;text-shadow:0 10px 35px rgba(0,0,0,.58)}.copy p{font-size:10px;line-height:1.5;color:#e7e9e8;margin:0 0 20px}.cta{height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.74);border-radius:8px;display:inline-flex;align-items:center;gap:28px;font-size:9px;background:rgba(0,0,0,.16);transition:.3s}.cta:hover{background:#fff;color:#050607;transform:translateY(-2px)}
+/* WHEEL */
+.wheelArea{position:absolute;z-index:24;left:50%;top:53%;width:470px;height:470px;transform:translate(-50%,-50%);pointer-events:none}.wheelShadow{display:none!important}.wheel{position:absolute;left:50%;top:50%;width:370px;height:370px;transform:translate(-50%,-50%);will-change:transform;filter:none}.wheel img{position:absolute;width:100%;height:100%;object-fit:contain;display:block}.wheelBase{inset:0;opacity:1}.wheelSummer{inset:0;clip-path:inset(0 50% 0 0);filter:saturate(1.05) sepia(.12)}.wheelWinter{inset:0;clip-path:inset(0 0 0 50%);filter:saturate(.8) hue-rotate(8deg) brightness(.82)}.wheelShade{display:none!important}.wheelRing{position:absolute;inset:2%;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);pointer-events:none}.seasonBtn{pointer-events:auto;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;border:1px solid rgba(255,255,255,.75);background:rgba(3,7,9,.9);backdrop-filter:blur(12px);z-index:8;display:grid;place-items:center;font-size:8px;line-height:1.06;box-shadow:0 0 35px rgba(0,0,0,.7);transition:.3s}.seasonBtn:hover{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 0 44px rgba(174,226,255,.22)}.seasonBtn .arr{position:absolute;font-size:20px;line-height:1}.seasonBtn .l{left:-43px}.seasonBtn .r{right:-43px}.split{position:absolute;z-index:30;top:-85px;bottom:-85px;width:1px;left:50%;background:linear-gradient(180deg,transparent 0,#dff6ff 20%,#fff 50%,#dff6ff 80%,transparent);box-shadow:0 0 18px rgba(188,232,255,.92)}.hint{position:absolute;z-index:35;left:50%;bottom:38px;transform:translateX(-50%);font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.56)}.pager{position:absolute;right:3.7%;bottom:43px;z-index:35;display:flex;flex-direction:column;align-items:center;gap:9px;font-size:9px;color:#8c9498}.pager b{color:#fff}.pager i{height:31px;width:1px;background:#fff}
+/* FINDER */
+.finderWrap{position:relative;z-index:80;margin:-30px auto 0;width:min(880px,91%)}.finder{background:rgba(5,10,13,.97);border:1px solid rgba(255,255,255,.16);border-radius:10px;box-shadow:0 28px 70px rgba(0,0,0,.52);backdrop-filter:blur(18px);overflow:visible}.tabs{height:45px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}.tabs button{height:100%;padding:0 28px;border:0;background:transparent;font-size:9px;color:#81898d;position:relative}.tabs button.active{color:#fff}.tabs button.active:after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:2px;background:#fff}.quick{margin-left:auto;margin-right:18px;font-size:8px;color:#7d858a;background:none;border:0;letter-spacing:.2px}.quick:hover{color:#fff}.field{position:relative;min-width:0}.fields{display:grid;grid-template-columns:repeat(4,1fr) 1.4fr;gap:10px;padding:17px 14px}.field span{display:block;font-size:7px;color:#9ba3a7;margin:0 0 7px}.field button,.field select{height:43px;width:100%;background:#0a1013;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:0 12px;color:#e7e9e7;font-size:10px;display:flex;align-items:center;justify-content:space-between;outline:none}.field button:hover,.field select:focus{border-color:rgba(255,255,255,.35)}.fieldMenu{position:absolute;z-index:120;left:0;right:0;top:55px;min-width:100%;padding:5px;background:#0a1013;border:1px solid rgba(255,255,255,.16);border-radius:7px;box-shadow:0 15px 35px rgba(0,0,0,.45);overflow:hidden}.fieldMenu button{width:100%;height:34px;background:transparent;border:0;text-align:left;padding:0 10px;font-size:9px;border-radius:4px}.fieldMenu button:hover{background:rgba(255,255,255,.08)}.find{height:43px;border:0;border-radius:7px;background:#f2f3f0;color:#050607;font-size:10px;font-weight:800;transition:.25s}.find:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,255,255,.08)}.result{padding:10px 15px;border-top:1px solid rgba(255,255,255,.08);font-size:9px;display:flex;gap:7px;align-items:center}.result a{margin-left:auto;text-decoration:underline}.result.ok{color:#dff7e9}.result svg{color:#9ff0bd}
+/* BELOW */
+.section{width:min(1240px,92%);margin-left:auto;margin-right:auto}.benefits{display:grid;grid-template-columns:repeat(4,1fr) 1.1fr;gap:22px;align-items:center;margin-top:25px;margin-bottom:24px}.benefit{display:flex;gap:11px;align-items:center}.benefitIcon{width:31px;height:31px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:grid;place-items:center;color:#e7e8e7;font-size:12px}.benefit strong{font-size:9px;display:block}.benefit small{font-size:7px;color:#7d858a;display:block;margin-top:5px}.catalogPill{height:44px;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:#090f12;display:flex;align-items:center;gap:10px;padding:0 12px;font-size:8px;transition:.25s}.catalogPill:hover{border-color:rgba(255,255,255,.3);transform:translateY(-1px)}.catalogPill img{width:62px;height:30px;border-radius:15px;object-fit:cover}
+.brands{height:59px;border:1px solid rgba(255,255,255,.1);border-radius:9px;background:#080d10;display:flex;overflow:hidden;margin-bottom:58px}.brandTrack{display:flex;align-items:center;gap:55px;white-space:nowrap;animation:marq 28s linear infinite;padding-left:25px;min-width:0}.brandTrack button{border:0;background:none;font-family:Georgia,serif;font-size:15px;font-weight:800;font-style:italic;opacity:.82;white-space:nowrap}.brandTrack button:hover{opacity:1}.brandsMore{margin-left:auto;display:flex;align-items:center;gap:9px;padding:0 17px;border:0;border-left:1px solid rgba(255,255,255,.09);background:#080d10;color:#fff;appearance:none;-webkit-appearance:none;font-size:9px;white-space:nowrap;flex:0 0 auto}@keyframes marq{to{transform:translateX(-50%)}}
+.quality{position:relative;min-height:500px;border-radius:10px;overflow:hidden;margin-bottom:75px;background:#05090b;display:grid;grid-template-columns:44% 56%;border:1px solid rgba(255,255,255,.05)}.qualityPhoto{position:relative;inset:auto;height:100%;min-height:500px;background-image:url('./shyna-quality-tire-4k.jpg');background-size:cover;background-position:center;filter:saturate(.86) contrast(1.10)}.qualityPhoto:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,9,11,0) 45%,#05090b 100%),linear-gradient(0deg,rgba(0,0,0,.38),transparent 55%)}.quality:after{content:none}.qualityCopy{position:relative;z-index:2;margin:0;padding:52px 28px 0 30px}.kicker{font-size:8px;letter-spacing:1.5px;color:#8f979b}.qualityCopy h2{font-family:'Barlow Condensed',Impact,sans-serif;font-size:39px;line-height:.9;letter-spacing:-.7px;margin:15px 0}.qualityCopy p{font-size:10px;line-height:1.55;color:#b9c0c3;margin:0 0 24px;max-width:390px}.qualityCards{position:absolute;z-index:4;right:22px;bottom:22px;width:53%;display:grid;grid-template-columns:1fr 1fr;gap:9px}.qcard{min-height:112px;background:rgba(9,15,18,.9);border:1px solid rgba(255,255,255,.11);border-radius:8px;padding:15px;backdrop-filter:blur(12px);transition:.35s}.qcard:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.31);box-shadow:0 14px 35px rgba(0,0,0,.22)}.qcard .icon{font-size:18px}.qcard h3{font-size:11px;margin:8px 0 5px}.qcard p{font-size:9px;color:#8e969b;line-height:1.45;margin:0}
+.catalog{margin-bottom:75px}.sectionHead{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}.sectionHead h2{font-family:'Barlow Condensed',Impact,sans-serif;font-size:32px;line-height:.9;letter-spacing:-.5px;margin:9px 0 5px}.sectionHead h2 em{font-style:normal}.sectionHead p{font-size:9px;color:#8c9498;margin:0}.sectionHead>a{font-size:9px;text-decoration:underline}.catalogFilters{display:flex;align-items:center;gap:7px;margin:0 0 16px;flex-wrap:wrap}.catalogFilters button{height:31px;padding:0 11px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:#080d10;color:#aeb5b8;font-size:8px;transition:.25s}.catalogFilters button:hover,.catalogFilters button.active{background:#f3f4f1;color:#050607;border-color:#f3f4f1}.catalogFilters span{flex:1;min-width:18px}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product{background:#090f12;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden;transition:.35s}.product:hover{transform:translateY(-7px);border-color:rgba(255,255,255,.3);box-shadow:0 18px 38px rgba(0,0,0,.24)}.productImg{height:235px;background:radial-gradient(circle at 50% 48%,#263037 0,#11171a 42%,#090e11 78%);overflow:hidden;display:grid;place-items:center}.productImg img{width:100%;height:100%;object-fit:contain;filter:saturate(.72) contrast(1.08);transition:.5s}.product:hover .productImg img{transform:scale(1.045)}.productInfo{position:relative;padding:14px 55px 15px 18px}.productInfo b,.productInfo strong,.productInfo small{display:block}.productInfo b{font-size:10px}.productInfo strong{font-size:14px;margin-top:4px}.productInfo small{font-size:9px;color:#8c9498;margin-top:5px}.productInfo em{display:block;font-style:normal;font-size:12px;font-weight:800;margin-top:8px}.productInfo button{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:transparent;font-size:16px;transition:.25s}.product:hover .productInfo button{background:#fff;color:#050607}
+.final{height:450px;position:relative;overflow:hidden;display:flex;align-items:center;margin-top:10px}.finalBg{position:absolute;inset:0;background-image:url('https://assets.lummi.ai/assets/QmRjcZjCVU3Xuft9x1cdwVFC8hcA5VNGDcHn8cw73WSTvs');background-size:cover;background-position:center 62%;filter:brightness(.47) saturate(.75)}.final:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#030506 0%,rgba(3,5,6,.72) 35%,rgba(3,5,6,.32) 70%,#030506 100%)}.finalCopy{position:relative;z-index:2;margin-left:7%;max-width:560px}.finalCopy h2{font-family:'Barlow Condensed',Impact,sans-serif;font-size:45px;line-height:.88;letter-spacing:-1px;margin:14px 0}.finalCopy p{font-size:10px;color:#b8c0c3;line-height:1.55;max-width:480px;margin-bottom:20px}.solid{height:42px;padding:0 17px;background:#f3f4f1;color:#050607;border-radius:7px;display:inline-flex;align-items:center;gap:27px;font-size:9px;font-weight:800;transition:.25s}.solid:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,255,255,.1)}.location{position:absolute;right:4%;bottom:32px;z-index:3;text-align:right;font-size:9px}.location span{color:#6d757a}
+.footer{padding:44px 4.3%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);background:#020405}.footer b{font-size:18px}.footer small{display:block;color:#6d757a;font-size:7px;letter-spacing:2.5px;margin-top:4px}.footer p{font-size:9px;color:#70787c}.footer nav{display:flex;gap:21px;font-size:9px;color:#aeb4b7}.mobileCta{display:none}
+/* OVERLAYS */
+.modalBackdrop{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.3s}.modalBackdrop.open{opacity:1;pointer-events:auto}.modal{width:min(560px,100%);background:#080e11;border:1px solid rgba(255,255,255,.15);border-radius:14px;box-shadow:0 30px 90px rgba(0,0,0,.5);padding:25px;transform:translateY(18px) scale(.98);transition:.35s}.modalBackdrop.open .modal{transform:none}.modalHead{display:flex;align-items:start;justify-content:space-between;gap:20px}.modal h3{font-family:'Barlow Condensed',Impact,sans-serif;font-size:31px;margin:0;line-height:.9}.close{width:32px;height:32px;border-radius:50%;border:1px solid var(--line2);background:transparent}.modal p{font-size:10px;line-height:1.6;color:#aeb5b8}.modalForm{display:grid;gap:10px;margin-top:18px}.modalForm input,.modalForm textarea,.modalForm select{width:100%;border:1px solid var(--line);background:#0c1317;color:#fff;border-radius:7px;padding:12px;font-size:10px;outline:none}.modalForm textarea{min-height:90px;resize:vertical}.modalForm button{height:42px;border:0;border-radius:7px;background:#f4f5f1;color:#050607;font-size:10px;font-weight:800}.modalForm .brandChoice{display:flex;justify-content:space-between;align-items:center;background:#0c1317;color:#f5f5f1;border:1px solid var(--line);padding:0 13px}.modalForm .brandChoice:hover{border-color:var(--line2);background:#11191d}.productModalGrid{display:grid;grid-template-columns:180px 1fr;gap:18px;margin-top:18px}.productModalGrid img{width:180px;height:180px;object-fit:cover;border-radius:8px}.specs{display:grid;gap:8px}.specs div{display:flex;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:9px}.toast{position:fixed;z-index:400;left:50%;bottom:26px;transform:translate(-50%,20px);padding:11px 16px;border:1px solid var(--line2);background:#0a1114;border-radius:999px;font-size:9px;opacity:0;pointer-events:none;transition:.35s}.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(32px);filter:blur(9px);transition:opacity .85s var(--ease),transform .85s var(--ease),filter .85s var(--ease)}.reveal.in{opacity:1;transform:none;filter:none}
+
+/* MOBILE POLISH - robust layout, touch friendly, no overflow */
+.mobileIg{display:none;width:34px;height:34px;border:1px solid rgba(255,255,255,.22);border-radius:50%;align-items:center;justify-content:center;font-size:16px;background:rgba(0,0,0,.15)}
+.hero{overscroll-behavior-x:contain}
+
+@media(max-width:760px){
+  html{scroll-padding-top:70px}
+  body{min-width:0;overflow-x:hidden}
+  .page{width:100%;overflow:hidden}
+
+  .nav{
+    height:64px;
+    padding:0 14px;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:8px;
+  }
+  .logo{min-width:0}
+  .logo b,.logo span{font-size:20px}
+  .logo small{font-size:6px;letter-spacing:2.1px;margin-top:6px}
+  .navright{gap:6px}
+  .mobileIg{display:flex}
+  .nav-search,.write{display:none}
+  .menu{display:grid;place-items:center}
+
+  .navlinks{
+    top:70px;
+    left:12px;
+    right:12px;
+    padding:16px;
+    gap:2px;
+    border-radius:14px;
+    box-shadow:0 22px 55px rgba(0,0,0,.48);
+  }
+  .navlinks a{
+    min-height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:11px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .navlinks a:last-child{border-bottom:0}
+
+  /* Hero: shorter, safer proportions on phones */
+  .hero{
+    height:700px;
+    min-height:700px;
+    touch-action:pan-y;
+    cursor:default;
+  }
+  .copy{
+    width:calc(100% - 36px);
+    left:18px!important;
+    right:auto!important;
+  }
+  .copy.left{
+    top:96px;
+  }
+  .copy.right{
+    top:auto;
+    bottom:82px;
+  }
+  .meta{
+    font-size:8px;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .meta span{font-size:8px}
+  .copy h1,.copy h2{
+    font-size:38px;
+    line-height:.84;
+    letter-spacing:-1px;
+    margin-bottom:14px;
+  }
+  .copy p{
+    font-size:8.5px;
+    line-height:1.45;
+    max-width:280px;
+    margin-bottom:15px;
+  }
+  .copy p br{display:none}
+  .cta{
+    height:42px;
+    padding:0 14px;
+    gap:18px;
+    font-size:8.5px;
+    border-radius:7px;
+  }
+
+  .wheelArea{
+    top:50%;
+    width:min(78vw,300px);
+    height:min(78vw,300px);
+  }
+  .wheel{
+    width:min(72vw,278px);
+    height:min(72vw,278px);
+  }
+  .seasonBtn{
+    width:62px;
+    height:62px;
+    font-size:7px;
+  }
+  .seasonBtn .arr{font-size:18px}
+  .seasonBtn .l{left:-30px}
+  .seasonBtn .r{right:-30px}
+  .split{top:-62px;bottom:-62px}
+  .hint{
+    bottom:17px;
+    font-size:7px;
+    letter-spacing:2px;
+  }
+  .pager{
+    right:14px;
+    bottom:17px;
+    gap:6px;
+    font-size:8px;
+  }
+
+  /* Finder */
+  .finderWrap{
+    width:calc(100% - 20px);
+    margin-top:-12px;
+  }
+  .finder{
+    border-radius:12px;
+  }
+  .tabs{
+    height:auto;
+    min-height:48px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-right:0;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{
+    flex:0 0 auto;
+    min-height:48px;
+    padding:0 13px;
+    font-size:8px;
+  }
+  .tabs button.active:after{left:10px;right:10px}
+  .quick{
+    margin-left:auto;
+    margin-right:9px;
+  }
+  .fields{
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    padding:12px;
+  }
+  .field span{font-size:7px;margin-bottom:6px}
+  .field button,.field select{
+    height:44px;
+    padding:0 10px;
+    font-size:9px;
+  }
+  .fieldMenu{
+    top:51px;
+    max-height:190px;
+    overflow:auto;
+  }
+  .fieldMenu button{height:38px}
+  .find{
+    grid-column:1/-1;
+    height:46px;
+  }
+  .result{
+    padding:10px 12px;
+    font-size:8px;
+    flex-wrap:wrap;
+  }
+  .result a{margin-left:auto}
+
+  .section{width:calc(100% - 20px)}
+  .benefits{
+    grid-template-columns:1fr 1fr;
+    gap:12px 10px;
+    margin-top:18px;
+    margin-bottom:22px;
+  }
+  .benefit{gap:8px;min-width:0}
+  .benefitIcon{
+    width:29px;height:29px;min-width:29px;
+    font-size:11px;
+  }
+  .benefit strong{font-size:7.5px;line-height:1.15}
+  .benefit small{font-size:6.5px;margin-top:4px;line-height:1.2}
+
+  .brands{
+    height:52px;
+    margin-bottom:38px;
+    border-radius:10px;
+  }
+  .brandTrack{
+    gap:28px;
+    padding-left:17px;
+    animation-duration:22s;
+  }
+  .brandTrack button{font-size:13px}
+  .brandsMore{display:none}
+
+  /* Quality section becomes a clean vertical card */
+  .quality{
+    min-height:0;
+    margin-bottom:50px;
+    display:flex;
+    flex-direction:column;
+    border-radius:12px;
+  }
+  .qualityPhoto{
+    height:250px;
+    min-height:250px;
+    flex:0 0 250px;
+    background-position:center;
+  }
+  .qualityPhoto:after{
+    background:linear-gradient(180deg,rgba(5,9,11,0) 15%,#05090b 100%);
+  }
+  .qualityCopy{
+    padding:0 18px 18px;
+    margin-top:-8px;
+  }
+  .qualityCopy h2{
+    font-size:34px;
+    margin:10px 0 12px;
+  }
+  .qualityCopy p{
+    font-size:8.5px;
+    line-height:1.5;
+    margin-bottom:16px;
+  }
+  .qualityCards{
+    position:static;
+    width:auto;
+    margin:0 12px 12px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .qcard{
+    min-height:105px;
+    padding:12px;
+  }
+  .qcard .icon{font-size:16px}
+  .qcard h3{font-size:9px;margin:7px 0 4px}
+  .qcard p{font-size:7.5px;line-height:1.4}
+
+  .catalog{margin-bottom:50px}
+  .sectionHead{
+    display:flex;
+    align-items:flex-end;
+    gap:10px;
+    margin-bottom:15px;
+  }
+  .sectionHead>div{min-width:0}
+  .sectionHead h2{font-size:28px}
+  .sectionHead p{
+    font-size:8px;
+    line-height:1.4;
+    margin-top:7px;
+  }
+  .sectionHead>a{font-size:8px}
+  #allProductsBtn{
+    flex:0 0 auto;
+    max-width:105px;
+    white-space:normal;
+    text-align:right;
+    line-height:1.25;
+  }
+  .catalogFilters{
+    gap:6px;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-bottom:4px;
+    margin-bottom:12px;
+  }
+  .catalogFilters::-webkit-scrollbar{display:none}
+  .catalogFilters button{
+    flex:0 0 auto;
+    height:30px;
+    font-size:7.5px;
+    padding:0 10px;
+  }
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  .product{border-radius:9px}
+  .productImg{
+    height:155px;
+    min-height:155px;
+  }
+  .productInfo{
+    padding:10px 39px 12px 10px;
+  }
+  .productInfo b{font-size:7.5px}
+  .productInfo strong{font-size:10px}
+  .productInfo small{font-size:7px;margin-top:4px}
+  .productInfo em{font-size:10px;margin-top:6px}
+  .productInfo button{
+    width:28px;height:28px;right:7px;
+    font-size:13px;
+  }
+
+  .final{
+    height:auto;
+    min-height:470px;
+    padding:90px 0 85px;
+    align-items:flex-end;
+  }
+  .finalBg{background-position:center}
+  .final:after{
+    background:linear-gradient(180deg,rgba(3,5,6,.35),rgba(3,5,6,.9) 72%,#030506 100%);
+  }
+  .finalCopy{
+    margin:0 18px;
+    max-width:none;
+  }
+  .finalCopy h2{font-size:36px}
+  .finalCopy p{font-size:8.5px;line-height:1.5}
+  .solid{
+    height:44px;
+    width:100%;
+    justify-content:center;
+    font-size:8.5px;
+  }
+  .location{
+    right:18px;
+    bottom:22px;
+    font-size:7px;
+  }
+
+  .footer{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+    padding:30px 18px 82px;
+  }
+  .footer p{font-size:8px;margin:0}
+  .footer nav{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 18px;
+    font-size:8px;
+  }
+
+  .mobileCta{
+    left:10px;
+    right:10px;
+    bottom:10px;
+    height:48px;
+    border-radius:9px;
+    font-size:9px;
+    z-index:180;
+  }
+
+  .modalBackdrop{
+    padding:10px;
+    align-items:flex-end;
+  }
+  .modal{
+    width:100%;
+    max-height:90dvh;
+    overflow:auto;
+    padding:18px;
+    border-radius:16px 16px 12px 12px;
+  }
+  .modal h3{font-size:28px}
+  .modal p{font-size:9px}
+  .modalForm input,.modalForm textarea,.modalForm select{
+    min-height:44px;
+    font-size:10px;
+  }
+  .modalForm textarea{min-height:100px}
+  .modalForm button{min-height:44px}
+  .productModalGrid{grid-template-columns:1fr;gap:12px}
+  .productModalGrid img{
+    width:100%;
+    height:min(55vw,240px);
+    object-fit:contain;
+  }
+}
+
+/* Small phones */
+@media(max-width:390px){
+  .hero{height:675px;min-height:675px}
+  .copy.left{top:88px}
+  .copy.right{bottom:75px}
+  .copy h1,.copy h2{font-size:34px}
+  .copy p{max-width:245px}
+  .wheelArea{top:49%;width:72vw;height:72vw}
+  .wheel{width:68vw;height:68vw}
+  .seasonBtn{width:58px;height:58px}
+  .qualityPhoto{height:220px;min-height:220px;flex-basis:220px}
+  .productImg{height:138px;min-height:138px}
+  .sectionHead h2{font-size:25px}
+}
+
+/* Prevent accidental horizontal overflow from animated/long content */
+@media(max-width:760px){
+  .scene,.finalBg{max-width:100vw}
+  img{max-width:100%}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.brandTrack{animation:none}.reveal{transition:none}.product,.qcard,.cta,.solid{transition:none}}
+</style>
 </head>
-<body><main><div><h1>SHYNA SHOP</h1><p>Мобільна версія сайту</p><p><a href="https://www.instagram.com/shyna_shop.ua/" target="_blank" rel="noopener noreferrer">Instagram SHYNA SHOP ↗</a></p></div></main></body>
+<body>
+<div class="page">
+<header class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="SHYNA SHOP"><b>SHYNA</b> <span>SHOP</span><small>ШИНИ · ЛЬВІВ</small></a>
+  <nav class="navlinks" id="navlinks" aria-label="Основна навігація">
+    <a href="#catalog">Каталог</a><a href="#finder">Підбір шин</a><a href="#brands">Бренди</a><a href="#about">Про нас</a><a href="#delivery">Доставка</a><a href="#contacts">Контакти</a><a href="https://www.instagram.com/shyna_shop.ua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Club Cosmetologists">Instagram ↗</a>
+  </nav>
+  <div class="navright"><button class="nav-search" id="searchBtn" aria-label="Пошук">⌕</button><a class="phone" href="tel:+380000000000">+38 0XX XXX XX XX</a><button class="write" id="writeBtn">➤&nbsp; Написати нам</button><a class="mobileIg" href="https://www.instagram.com/shyna_shop.ua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SHYNA SHOP">◎</a><button class="menu" id="menuBtn" aria-label="Відкрити меню">☰</button></div>
+</header>
+
+<section class="hero" id="top" aria-label="Інтерактивний перехід між літніми та зимовими шинами">
+  <div class="scene summer" id="summer"></div><div class="scene winter" id="winter"></div><div class="noise"></div><canvas class="particles" id="particles"></canvas>
+  <div class="copy left" id="summerCopy"><div class="meta">01 / 03 <span class="sun">☼ ЛІТНІ ШИНИ</span></div><h1>БІЛЬШЕ<br>СВОБОДИ</h1><p>НАДІЙНЕ ЗЧЕПЛЕННЯ. МАКСИМАЛЬНИЙ<br>КОНТРОЛЬ У БУДЬ-ЯКУ ПОГОДУ.</p><a class="cta" href="#catalog">ПЕРЕЙТИ ДО КАТАЛОГУ <span>→</span></a></div>
+  <div class="copy right" id="winterCopy"><div class="meta">03 / 03 <span class="snow">❄ ЗИМОВІ ШИНИ</span></div><h2>ВПЕВНЕНІСТЬ<br>У КОЖНІЙ ПОЇЗДЦІ</h2><p>СТАБІЛЬНІСТЬ. БЕЗПЕКА. КОНТРОЛЬ<br>НА БУДЬ-ЯКІЙ ДОРОЗІ.</p><a class="cta" href="#finder" data-season="winter" id="winterCta">ПІДІБРАТИ ЗИМОВІ <span>→</span></a></div>
+  <div class="wheelArea" id="wheelArea" role="slider" aria-label="Перетягніть для зміни сезону" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+    <div class="wheelShadow"></div><div class="wheel" id="wheel"><img class="wheelSummer" id="wheelSummer" src="https://pngimg.com/uploads/car_wheel/car_wheel_PNG23301.png" alt="" aria-hidden="true"><img class="wheelWinter" id="wheelWinter" src="https://pngimg.com/uploads/car_wheel/car_wheel_PNG23300.png" alt="" aria-hidden="true"><div class="wheelShade"></div><div class="wheelRing"></div></div>
+    <div class="split" id="split"></div><button class="seasonBtn" id="seasonBtn" aria-label="Змінити сезон"><span class="arr l">‹</span>ЗМІНИ<br>СЕЗОН<span class="arr r">›</span></button>
+  </div><div class="hint">← DRAG →</div><div class="pager"><b>01</b><i></i><span>02</span><span>03</span></div>
+</section>
+
+<section class="finderWrap reveal" id="finder"><div class="finder"><div class="tabs"><button class="active" data-tab="size">ЗА РОЗМІРОМ</button><button data-tab="car">ЗА АВТОМОБІЛЕМ</button><button class="quick" id="quickBtn" type="button">ШВИДКИЙ ПІДБІР ⚙</button></div><div class="fields" id="fields"></div><div class="result" id="result" hidden></div></div></section>
+
+<section class="section benefits reveal" id="delivery">
+  <div class="benefit"><span class="benefitIcon">⌁</span><div><strong>ДОСТАВКА ПО УКРАЇНІ</strong><small>Новою Поштою</small></div></div>
+  <div class="benefit"><span class="benefitIcon">◇</span><div><strong>ПЕРЕВІРЕНІ ШИНИ</strong><small>Реальний стан</small></div></div>
+  <div class="benefit"><span class="benefitIcon">▦</span><div><strong>ВЕЛИКИЙ ВИБІР</strong><small>Популярні бренди</small></div></div>
+  <div class="benefit"><span class="benefitIcon">◌</span><div><strong>КОНСУЛЬТАЦІЯ</strong><small>Telegram / Viber / WhatsApp</small></div></div>
+  <a class="catalogPill" href="#catalog"><img src="https://assets.lummi.ai/assets/QmRjcZjCVU3Xuft9x1cdwVFC8hcA5VNGDcHn8cw73WSTvs" alt=""> ДИВИТИСЯ КАТАЛОГ →</a>
+</section>
+
+<section class="section brands reveal" id="brands"><div class="brandTrack" id="brandTrack"></div><button class="brandsMore" id="brandsBtn">Всі бренди →</button></section>
+
+<section class="section quality reveal" id="about"><div class="qualityPhoto"></div><div class="qualityCopy"><span class="kicker">ЯКІСТЬ У ДЕТАЛЯХ</span><h2>РЕАЛЬНІ ШИНИ.<br>РЕАЛЬНІ МОЖЛИВОСТІ.</h2><p>У нас ви бачите саме той товар, який купуєте.<br>Жодних підробних фото - тільки реальні шини<br>з нашого складу.</p><a class="cta" href="#catalog">ПЕРЕГЛЯНУТИ КАТАЛОГ <span>→</span></a></div><div class="qualityCards"><article class="qcard"><span class="icon">◉</span><h3>Реальні фото</h3><p>Ви бачите саме той товар, який купуєте.</p></article><article class="qcard"><span class="icon">◌</span><h3>Точні параметри</h3><p>Розмір, бренд, сезон та реальний стан.</p></article><article class="qcard"><span class="icon">□</span><h3>Доставка по Україні</h3><p>Відправлення Новою Поштою.</p></article><article class="qcard"><span class="icon">⌁</span><h3>Консультація</h3><p>Допоможимо підібрати кращий варіант.</p></article></div></section>
+
+<section class="section catalog reveal" id="catalog"><div class="sectionHead"><div><span class="kicker">ПОПУЛЯРНІ ПОЗИЦІЇ</span><h2>ШИНИ <em>В НАЯВНОСТІ</em></h2><p>Популярні розміри, перевірені бренди, реальний стан.</p></div><button class="brandsMore" id="allProductsBtn" style="border:0;background:none;color:#fff">Переглянути всі шини →</button></div><div class="catalogFilters" id="catalogFilters"><button class="active" data-filter="all">Усі</button><button data-filter="Літні">☼ Літні</button><button data-filter="Зимові">❄ Зимові</button><span></span><button data-brand-filter="MICHELIN">Michelin</button><button data-brand-filter="CONTINENTAL">Continental</button><button data-brand-filter="PIRELLI">Pirelli</button><button data-brand-filter="BRIDGESTONE">Bridgestone</button></div><div class="products" id="products"></div><div class="emptyCatalog" id="emptyCatalog" hidden>За цим фільтром шин зараз немає. <button id="resetCatalog">Показати всі</button></div></section>
+
+<section class="final reveal" id="contacts"><div class="finalBg"></div><div class="finalCopy"><span class="kicker">SHYNA SHOP · ЛЬВІВ</span><h2>НЕ ЗНАЄТЕ,<br>ЯКІ ШИНИ ВАМ ПОТРІБНІ?</h2><p>Ми допоможемо підібрати і знайти найкращий варіант саме під ваш автомобіль.</p><button class="solid" id="consultBtn">ОТРИМАТИ КОНСУЛЬТАЦІЮ →</button></div><div class="location">ЛЬВІВ<br><span>УКРАЇНА</span></div></section>
+<footer class="footer"><div><b>SHYNA SHOP</b><small>ШИНИ · ЛЬВІВ</small></div><p>Преміальний підбір літніх та зимових шин.</p><nav><a href="#catalog">Каталог</a><a href="#finder">Підбір шин</a><a href="#contacts">Контакти</a><a href="https://www.instagram.com/shyna_shop.ua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Club Cosmetologists">Instagram ↗</a></nav></footer>
+<a class="mobileCta" href="#finder">ПІДІБРАТИ ШИНИ →</a>
+
+<div class="modalBackdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalHead"><h3 id="modalTitle">ЗВ'ЯЗАТИСЯ З НАМИ</h3><button class="close" id="closeModal" aria-label="Закрити">×</button></div><div id="modalBody"></div></div></div><div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const hero=$('.hero'),summer=$('#summer'),winter=$('#winter'),split=$('#split'),wheel=$('#wheel'),ws=$('#wheelSummer'),ww=$('#wheelWinter'),sc=$('#summerCopy'),wc=$('#winterCopy');
+let p=.5,target=.5,rot=0,velocity=0,down=false,startX=0,startP=.5,lastT=performance.now();
+const products=[
+ {brand:'MICHELIN',size:'205/55 R16',season:'Літні',condition:'90%',price:'4 850 грн',img:'./tire-product-1-4k.jpg'},
+ {brand:'CONTINENTAL',size:'215/55 R17',season:'Літні',condition:'85%',price:'5 200 грн',img:'./tire-product-2-4k.jpg'},
+ {brand:'PIRELLI',size:'225/45 R18',season:'Літні',condition:'80%',price:'5 990 грн',img:'./tire-product-3-4k.jpg'},
+ {brand:'BRIDGESTONE',size:'235/55 R18',season:'Зимові',condition:'90%',price:'6 400 грн',img:'./tire-product-4-4k.jpg'}
+];
+const brands=['MICHELIN','Continental','PIRELLI','BRIDGESTONE','DUNLOP','GOODYEAR','HANKOOK'];
+function openModal(title,html){$('#modalTitle').textContent=title;$('#modalBody').innerHTML=html;$('#modalBackdrop').classList.add('open');document.body.classList.add('lock')}
+function closeModal(){$('#modalBackdrop').classList.remove('open');document.body.classList.remove('lock')}
+$('#closeModal').onclick=closeModal;$('#modalBackdrop').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function toast(text){const t=$('#toast');t.textContent=text;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2400)}
+function setSeason(v){target=v==='winter'?1:0}
+function render(){const d=target-p;p+=d*(down?.18:.075);velocity+=((d*18)-velocity)*.08;rot+=velocity*2.25;const pc=p*100;summer.style.clipPath=`inset(0 ${100-pc}% 0 0)`;winter.style.clipPath=`inset(0 0 0 ${pc}%)`;split.style.left=pc+'%';ws.style.clipPath=`inset(0 ${100-pc}% 0 0)`;ww.style.clipPath=`inset(0 0 0 ${pc}%)`;wheel.style.transform=`translate(-50%,-50%) rotate(${rot}deg) scale(${1+Math.abs(p-.5)*.035})`;sc.style.opacity=Math.max(.2,1-Math.max(0,p-.35)/.65);wc.style.opacity=Math.max(.2,Math.max(0,p-.35)/.65);sc.style.transform=`translateX(${(0.5-p)*28}px)`;wc.style.transform=`translateX(${(0.5-p)*28}px)`;sc.style.filter=`blur(${Math.max(0,p-.5)*4}px)`;wc.style.filter=`blur(${Math.max(0,.5-p)*4}px)`;$('#wheelArea').setAttribute('aria-valuenow',Math.round(pc));requestAnimationFrame(render)}
+requestAnimationFrame(render);
+let dragAxis=null,startY=0;
+function move(x,y){
+  if(!down)return;
+  const dx=x-startX,dy=y-startY;
+  if(dragAxis===null){
+    if(Math.abs(dx)<8 && Math.abs(dy)<8)return;
+    dragAxis=Math.abs(dx)>=Math.abs(dy)?'x':'y';
+  }
+  if(dragAxis!=='x')return;
+  const now=performance.now(),dt=Math.max(8,now-lastT);
+  target=Math.max(0,Math.min(1,startP+dx/(hero.clientWidth*.52)));
+  velocity=dx/dt;
+  lastT=now;
+}
+hero.addEventListener('pointerdown',e=>{
+  if(e.target.closest('button,a'))return;
+  down=true;dragAxis=null;startX=e.clientX;startY=e.clientY;startP=p;lastT=performance.now();
+  hero.setPointerCapture?.(e.pointerId);hero.classList.add('dragging');
+});
+hero.addEventListener('pointermove',e=>move(e.clientX,e.clientY));
+window.addEventListener('pointerup',()=>{
+  if(!down)return;
+  down=false;hero.classList.remove('dragging');
+  if(dragAxis!=='x'){target=p;velocity=0;return}
+  if(target>.67||velocity>.85)target=1;
+  else if(target<.33||velocity<-.85)target=0;
+  else target=.5;
+});
+$('#seasonBtn').onclick=()=>setSeason(p>.5?'summer':'winter');$('#wheelArea').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){target=Math.max(0,target-.08);e.preventDefault()}if(e.key==='ArrowRight'){target=Math.min(1,target+.08);e.preventDefault()}});
+window.addEventListener('scroll',()=>$('#nav').classList.toggle('scrolled',scrollY>30));$('#menuBtn').onclick=()=>$('#navlinks').classList.toggle('open');
+$$('.navlinks a').forEach(a=>a.onclick=()=>$('#navlinks').classList.remove('open'));
+$('#writeBtn').onclick=()=>openModal('НАПИСАТИ НАМ',`<p>Залиште контакти - ми допоможемо підібрати потрібний комплект шин.</p><form class="modalForm" id="contactForm"><input required placeholder="Ваше ім'я"><input required placeholder="Телефон або Telegram"><textarea placeholder="Які шини потрібні?"></textarea><button>НАДІСЛАТИ ЗАПИТ →</button></form>`);
+$('#consultBtn').onclick=()=>$('#writeBtn').click();
+$('#winterCta').onclick=()=>setSeason('winter');
+
+$('#searchBtn').onclick=()=>openModal('ПОШУК ШИН',`<p>Введіть розмір або бренд, щоб швидко знайти позицію.</p><form class="modalForm" id="searchForm"><input id="searchInput" required placeholder="Наприклад: 205/55 R16 або Michelin"><button>ЗНАЙТИ →</button></form>`);
+function attachModalForm(){const f=$('#contactForm');if(f)f.onsubmit=e=>{e.preventDefault();closeModal();toast('Запит прийнято - ми зв’яжемося з вами.');};const sf=$('#searchForm');if(sf)sf.onsubmit=e=>{e.preventDefault();const q=$('#searchInput').value.trim();closeModal();location.hash='catalog';toast(q?`Показуємо результати для «${q}»`:'Показуємо каталог');}}
+new MutationObserver(attachModalForm).observe($('#modalBody'),{childList:true});
+function wireFieldMenus(){
+  $$('.field button[data-options]').forEach(btn=>{
+    btn.onclick=()=>{
+      $$('.fieldMenu').forEach(x=>x.remove());
+      const menu=document.createElement('div');menu.className='fieldMenu';
+      const options=btn.dataset.options.split('|');
+      options.forEach((value,i)=>{const item=document.createElement('button');item.type='button';item.textContent=value;item.onclick=()=>{btn.textContent=value+'⌄';menu.remove()};menu.appendChild(item)});
+      btn.parentElement.style.position='relative';btn.parentElement.appendChild(menu);
+    };
+  });
+}
+function renderFinder(mode='size'){
+  $('#fields').innerHTML=mode==='size'
+  ? `<label class="field"><span>Ширина</span><button data-options="205|215|225|235">205⌄</button></label><label class="field"><span>Профіль</span><button data-options="45|50|55|60">55⌄</button></label><label class="field"><span>Діаметр</span><button data-options="R16|R17|R18|R19">R16⌄</button></label><label class="field"><span>Сезон</span><button data-options="☼ Літні|❄ Зимові|◐ Усі сезони">❄ Усі сезони⌄</button></label><button class="find" id="find">ЗНАЙТИ ШИНИ&nbsp; →</button>`
+  : `<label class="field"><span>Автомобіль</span><select><option>BMW 3 Series</option><option>Volkswagen Golf</option><option>Toyota RAV4</option><option>Skoda Octavia</option></select></label><label class="field"><span>Рік</span><select><option>2022</option><option>2023</option><option>2024</option></select></label><label class="field"><span>Модель</span><select><option>G20</option><option>G21</option><option>320d</option></select></label><label class="field"><span>Сезон</span><select><option>Усі сезони</option><option>Літні</option><option>Зимові</option></select></label><button class="find" id="find">ЗНАЙТИ ШИНИ&nbsp; →</button>`;
+  wireFieldMenus();
+  $('#find').onclick=()=>{let matches=products.slice();const vals=[...$('#fields').querySelectorAll('.field button,.field select')].map(x=>x.textContent.trim().replace('⌄','').trim());if(mode==='size'){const size=[vals[0],vals[1],vals[2]].join('/');matches=products.filter(x=>x.size.includes(vals[0]||'')&&x.size.includes(vals[1]||'')&&x.size.includes(vals[2]||''));}else{matches=products;}const season=vals[3]||'';if(season&&!season.includes('Усі'))matches=matches.filter(x=>x.season.toLowerCase().includes(season.toLowerCase().replace('☼ ','').replace('❄ ','')));if(!matches.length)matches=products.slice(0,2);renderProducts(matches);const r=$('#result');r.hidden=false;r.classList.add('ok');r.innerHTML=`✓ <span>Знайдено ${matches.length} ${matches.length===1?'позицію':'позиції'}</span><a href="#catalog">Переглянути →</a>`;r.querySelector('a').onclick=()=>{r.hidden=true}};
+}
+renderFinder();
+$$('.tabs button').forEach(btn=>btn.onclick=()=>{$$('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderFinder(btn.dataset.tab)});
+$('#quickBtn').onclick=()=>openModal('ШВИДКИЙ ПІДБІР',`<p>Відповідайте на 3 короткі питання - і ми підкажемо напрямок підбору.</p><form class="modalForm" id="quickForm"><select required><option value="">Ваш тип авто</option><option>Легкове авто</option><option>SUV / кросовер</option><option>Мінівен</option></select><select required><option value="">Ваш сезон</option><option>Літні</option><option>Зимові</option><option>Усі сезони</option></select><input required placeholder="Розмір, якщо знаєте"><button>ПІДІБРАТИ →</button></form>`);
+
+$('#brandTrack').innerHTML=[...brands,...brands].map(b=>`<button type="button" data-brand="${b}">${b}</button>`).join('');$$('.brandTrack button').forEach(b=>b.onclick=()=>{const brand=b.dataset.brand;renderProducts(products.filter(p=>p.brand.toLowerCase()===brand.toLowerCase()));location.hash='catalog';toast(`Показуємо ${brand}`)});$('#brandsBtn').onclick=()=>openModal('БРЕНДИ',`<p>Оберіть бренд - каталог відкриється з потрібним фільтром.</p><div class="modalForm">${brands.map(b=>`<button type="button" data-modal-brand="${b}" class="brandChoice">${b} <span>→</span></button>`).join('')}</div>`);
+function renderProducts(list=products){$('#products').innerHTML=list.map((p)=>{const i=products.indexOf(p);return `<article class="product" data-index="${i}"><div class="productImg"><img src="${p.img}" alt="${p.brand} ${p.size}" loading="lazy"></div><div class="productInfo"><b>${p.brand}</b><strong>${p.size}</strong><small>${p.season} · ${p.condition}</small><em>${p.price||''}</em><button data-product="${i}" aria-label="Деталі ${p.brand} ${p.size}">→</button></div></article>`}).join('');$('#emptyCatalog').hidden=!!list.length;$$('[data-product]').forEach(b=>b.onclick=()=>openProduct(+b.dataset.product));}
+function filterCatalog(kind,value){let list=products;if(kind==='season')list=products.filter(x=>x.season===value);if(kind==='brand')list=products.filter(x=>x.brand===value);renderProducts(list);$$('.catalogFilters button').forEach(b=>b.classList.remove('active'));const selector=kind==='season'?`[data-filter="${value}"]`:`[data-brand-filter="${value}"]`;$(selector)?.classList.add('active');location.hash='catalog';}
+$('#catalogFilters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.filter==='all'){renderProducts(products);$$('.catalogFilters button').forEach(x=>x.classList.remove('active'));b.classList.add('active');return}if(b.dataset.filter)filterCatalog('season',b.dataset.filter);if(b.dataset.brandFilter)filterCatalog('brand',b.dataset.brandFilter);});$('#resetCatalog').onclick=()=>renderProducts(products);
+function openProduct(i){const p=products[i];openModal(p.brand,`<div class="productModalGrid"><img src="${p.img}" alt="${p.brand}"><div class="specs"><div><span>Розмір</span><strong>${p.size}</strong></div><div><span>Сезон</span><strong>${p.season}</strong></div><div><span>Стан</span><strong>${p.condition}</strong></div><div><span>Ціна</span><strong>${p.price||'Уточнюйте'}</strong></div><div><span>Доставка</span><strong>Нова Пошта</strong></div><button class="solid" id="orderProduct">ЗАПИТАТИ ПРО ЦЮ ШИНУ →</button></div></div>`);$('#orderProduct').onclick=()=>{$('#writeBtn').click();};}
+renderProducts();
+
+$('#allProductsBtn').onclick=()=>openModal('КАТАЛОГ ШИН',`<p>Популярні позиції доступні нижче. Для точного підбору скористайтеся Finder.</p><div class="modalForm">${products.map((p,i)=>`<button type="button" class="brandChoice" data-modal-product="${i}">${p.brand} · ${p.size}<span>→</span></button>`).join('')}</div>`);
+$('#modalBody').addEventListener('submit',e=>{if(e.target.id==='quickForm'){e.preventDefault();closeModal();location.hash='finder';toast('Підбір готовий - перевірте параметри у Finder.')}});
+$('#modalBody').addEventListener('click',e=>{
+  const brand=e.target.closest('[data-modal-brand]');
+  if(brand){closeModal();location.hash='catalog';toast(`Фільтр бренду: ${brand.dataset.modalBrand}`);return}
+  const prod=e.target.closest('[data-modal-product]');
+  if(prod){const p=products[+prod.dataset.modalProduct];openModal(p.brand,`<div class="productModalGrid"><img src="${p.img}" alt="${p.brand}"><div class="specs"><div><span>Розмір</span><strong>${p.size}</strong></div><div><span>Сезон</span><strong>${p.season}</strong></div><div><span>Стан</span><strong>${p.condition}</strong></div><div><span>Доставка</span><strong>Нова Пошта</strong></div><button class="solid" id="orderProduct2">ЗАПИТАТИ ПРО ЦЮ ШИНУ →</button></div></div>`);$('#orderProduct2').onclick=()=>{$('#writeBtn').click()}}
+});
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});$$('.reveal').forEach(x=>observer.observe(x));
+// Particles: subtle seasonal response, no heavy canvas work.
+const canvas=$('#particles'),ctx=canvas.getContext('2d'),dots=Array.from({length:70},()=>({x:Math.random(),y:Math.random(),r:.4+Math.random()*1.4,v:.15+Math.random()*.6,w:Math.random()}));function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=canvas.clientHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}resize();addEventListener('resize',resize);function particleLoop(){ctx.clearRect(0,0,innerWidth,canvas.clientHeight);dots.forEach(d=>{d.y+=d.v*.0008;if(d.y>1)d.y=0;const winterAlpha=Math.max(0,(p-.35)/.65),summerAlpha=Math.max(0,(.65-p)/.65);const a=d.w>.5?winterAlpha:summerAlpha;if(a<.03)return;ctx.globalAlpha=a*.5;ctx.fillStyle=d.w>.5?'#d9f4ff':'#ffd18e';ctx.beginPath();ctx.arc(d.x*innerWidth,d.y*canvas.clientHeight,d.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;requestAnimationFrame(particleLoop)}particleLoop();
+</script>
+</body>
 </html>
